@@ -16,17 +16,17 @@ RUN    echo "========================================================= Installat
     && echo "========================================================= Installing IceStorm Tools (icepack, icebox, iceprog) " \
     && git clone https://github.com/cliffordwolf/icestorm.git icestorm \
     && cd icestorm \
-    && make \
+    && make -j 4 \
     && make install \
     && echo " ========================================================= Installation of Arachne-PNR (the place & route tool)" \
     && git clone https://github.com/cseed/arachne-pnr.git arachne-pnr \
     && cd arachne-pnr \
-    && make \
+    && make -j 4 \
     && make install \
     && echo " ========================================================= Installation of Yosys (Verilog synthesis)" \
     && git clone https://github.com/cliffordwolf/yosys.git yosys \
     && cd yosys \
-    && make \
+    && make -j 4 \
     && make install \
     && apt-get -y install gtkwave iverilog \
     && echo " ========================================================= cleaning up stuff" \

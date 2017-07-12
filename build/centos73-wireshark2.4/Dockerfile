@@ -12,7 +12,7 @@ RUN git clone https://github.com/FAIG2014/wireshark.git wireshark-2.4 \
     && git checkout master-2.4 \
     && ./autogen.sh \
     && /wireshark-2.4/configure \
-    && make \
+    && make -j 4 \
     && make install \
     && ldconfig
 
