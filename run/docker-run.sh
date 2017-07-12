@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+
+DOCKER_WORKSPACE=${DOCKER_WORKSPACE:=${HOME}/workspace}
+
 if [ -z "${DOCKER_NAME}" ];
 then
     NAME_OPTION="";
@@ -20,7 +23,7 @@ docker run \
     --cidfile=${CONTAINER_ID_FILE} \
     -u $(id -u) \
     -w ${PWD} \
-    -v ${HOME}:${HOME} \
+    -v ${DOCKER_WORKSPACE}:${DOCKER_WORKSPACE} \
     -e XAUTHORITY=:${HOME}/.Xauthority \
     -e DISPLAY=$DISPLAY \
     -v /tmp:/tmp \
